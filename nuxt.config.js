@@ -1,6 +1,6 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  // ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -57,31 +57,17 @@ export default {
     redirect: {
       login: '/login',
       logout: '/',
-      callback: '/callback',
+      callback: '/token',
       home: '/authed',
     },
-    cookie: {
-      prefix: 'auth.',
-      options: {
-        path: '/',
-        domains: 'cuisine.chuo.club',
-      },
-    },
     strategies: {
-      // github: {
-      //   clientId: 'c44620151025a4aa2ad5',
-      //   clientSecret: '4007c6d3096960d00d115678861f7ce7a2455a78'
-      // },
       discord: {
         clientId: '960890522950565928',
         clientSecret: 'LfnFEV2zEut8RoOhPfOtr5pnxrbNRB0S',
-        responseType: 'token',
+        configuration: {
+          responseType: 'token',
+        },
       },
-      // google: {
-      //   clientId: '163881984639-q1b7v483un475l2v48khcba7i34vk5f7.apps.googleusercontent.com',
-      //   codeChallengeMethod: '',
-      //   responseType: 'code',
-      // },
     },
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -90,6 +76,12 @@ export default {
     proxy: true,
   },
   proxy: {
+    '/api2': {
+      target:
+        'https://script.google.com/macros/s/AKfycbwS4SGRs0SzApsjzzAv76HRurAhovuv_PCHE4xL-pwPA-QFA6beIIDsQv91zCYXama_Xg/exec',
+      pathRewrite: { '^/api2': '' },
+      followRedirects: true,
+    },
     '/api': {
       target:
         'https://script.google.com/macros/s/AKfycbwS4SGRs0SzApsjzzAv76HRurAhovuv_PCHE4xL-pwPA-QFA6beIIDsQv91zCYXama_Xg/exec',
@@ -106,4 +98,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  router: {
+    middleware: 'auth',
+  },
 }

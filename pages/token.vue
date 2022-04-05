@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>callback</h1>
-    <p>少々お待ち下さい</p>
+    <h2 class="text-2xl">ログイン処理中</h2>
+    <p>少々お待ち下さい。動かない場合は後ほどお試しください。</p>
   </div>
 </template>
 

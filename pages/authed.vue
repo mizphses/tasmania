@@ -19,7 +19,7 @@
           >chuo.club ユーザとして認証されています</span
         >。管理画面はこちらです。
       </p>
-      <div v-else>
+      <div v-else-if="role == '404'">
         <p>
           あなたは<span class="font-bold text-yellow-600"
             >会員としての登録がされていません</span
@@ -34,6 +34,9 @@
           >これをクリックしてください。</a
         >
       </div>
+      <div v-else>
+        <p>ステータス確認中...</p>
+      </div>
     </div>
   </div>
 </template>
@@ -43,12 +46,18 @@ export default {
   name: 'AuthedPage',
   layout: 'fullscreen',
   middleware: 'auth',
-  async asyncData({ $axios, $auth }) {
-    const params = {
-      num: $auth.$state.user.id,
+  data() {
+    return {
+      id: this.$auth.$state.user.id,
+      role: '404',
     }
-    const role = await $axios.$get('/api', { params })
-    return { role }
+  },
+  async mounted() {
+    const params = {
+      num: this.id,
+    }
+    const role = await this.$axios.$get('/api2', { params })
+    this.role = role
   },
 }
 </script>
