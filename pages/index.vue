@@ -16,7 +16,7 @@
           CUISINEサービスはDiscordアカウントを使用して認証します。事前に<a
             href="//discord.com"
             class="underline text-blue-700"
-            >Discord公式</a
+            >Discord</a
           >からアカウントを作成してください。
         </p>
       </div>
