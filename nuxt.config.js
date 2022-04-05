@@ -64,7 +64,7 @@ export default {
       prefix: 'auth.',
       options: {
         path: '/',
-        domains: 'localhost',
+        domains: 'cuisine.chuo.club',
       },
     },
     strategies: {
