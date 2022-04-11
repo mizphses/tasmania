@@ -1,9 +1,3 @@
 <template>
-  <div class="height-bc" />
+  <div class="h-16"></div>
 </template>
-
-<style>
-.height-bc {
-  height: 60px;
-}
-</style>

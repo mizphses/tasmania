@@ -9,15 +9,25 @@
         >さん，ようこそ。
       </p>
       <hr class="pt-2" />
-      <p v-if="role == 'ccmem'">
+      <p v-if="role == 'hodokubomonorail'">
         あなたは<span class="font-bold text-red-900"
           >CUCC会員として認証されています</span
         >。管理画面はこちらです。
       </p>
+      <p v-if="role == 'admin_monolyth'">
+        あなたは<span class="font-bold text-green-900"
+          >管理者として認証されています</span
+        >。管理画面は<nuxt-link to="/" class="text-blue underline font-bold"
+          >こちら</nuxt-link
+        >です。
+      </p>
       <p v-else-if="role == 'usr'">
         あなたは<span class="font-bold text-yellow-900"
           >chuo.club ユーザとして認証されています</span
-        >。管理画面はこちらです。
+        >。管理画面は
+        <nuxt-link to="/" class="text-blue underline font-bold"
+          >こちら</nuxt-link
+        >です。
       </p>
       <div v-else-if="role == '404'">
         <p>
@@ -49,7 +59,7 @@ export default {
   data() {
     return {
       id: this.$auth.$state.user.id,
-      role: '404',
+      role: '',
     }
   },
   async mounted() {

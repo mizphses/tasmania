@@ -3,11 +3,11 @@ export default {
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'cuisine.chuo.club',
+    title: 'TASMANIA事務サービス',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -78,13 +78,13 @@ export default {
   proxy: {
     '/api2': {
       target:
-        'https://script.google.com/macros/s/AKfycbwS4SGRs0SzApsjzzAv76HRurAhovuv_PCHE4xL-pwPA-QFA6beIIDsQv91zCYXama_Xg/exec',
+        'https://script.google.com/macros/s/AKfycbxXJdD-g01yXZQ-mOo5JnSt1nc40iUWNVdm2CgO0BFEq-QNNj5gWYWwZ2KXhM1qEgnUiA/exec',
       pathRewrite: { '^/api2': '' },
       followRedirects: true,
     },
     '/api': {
       target:
-        'https://script.google.com/macros/s/AKfycbwS4SGRs0SzApsjzzAv76HRurAhovuv_PCHE4xL-pwPA-QFA6beIIDsQv91zCYXama_Xg/exec',
+        'https://script.google.com/macros/s/AKfycbxXJdD-g01yXZQ-mOo5JnSt1nc40iUWNVdm2CgO0BFEq-QNNj5gWYWwZ2KXhM1qEgnUiA/exec',
       pathRewrite: { '^/api': '' },
       followRedirects: true,
     },

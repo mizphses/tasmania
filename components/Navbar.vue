@@ -4,7 +4,7 @@
   >
     <NuxtLink to="/">
       <div class="flex flex-row items-center">
-        <p class="font-bold text-2xl font-logo pr-2">CUISINE</p>
+        <p class="font-bold text-2xl font-logo pr-2">TASMANIA</p>
       </div>
     </NuxtLink>
     <div>
@@ -36,12 +36,6 @@ export default Vue.extend({
       return this.$auth.loggedIn
     },
   },
-  // props: {
-  //   authed: {
-  //     type: Boolean,
-  //     default: false
-  //   }
-  // },
   methods: {
     logout() {
       this.$auth.logout()
