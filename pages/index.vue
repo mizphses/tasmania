@@ -2,7 +2,7 @@
   <div>
     <p v-if="!authed" class="text-xl w-full my-5 p-3 bg-gray-700 text-white">
       障害情報などはDiscord Channel:#障害情報
-      をご確認ください。障害にお気づきの場合はDiscord Channel:#iss保守
+      をご確認ください。障害にお気づきの場合はDiscord Channel:#tasmani保守
       にご連絡ください。
     </p>
     <div class="px-5">
