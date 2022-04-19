@@ -6,12 +6,18 @@
       にご連絡ください。
     </p>
     <div class="px-5">
-      <h2 class="text-2xl py-3 font-bold">
-        <span class="font-logo"> TASMANIA </span>
-        TT6事務・メンテナンスインターネットアプリケーション
-      </h2>
+      <h2 class="text-2xl py-3 font-bold">フロントページ</h2>
       <AfterLoginNotice v-if="authed" :user="user" :role="role" />
       <BeforeLoginNotice v-else />
+      <div class="py-10">
+        <nuxt-link v-if="role === 'admin'" to="/admin/">
+          <div
+            class="p-3 my-5 border border-red-800 hover:bg-red-800 hover:text-white rounded"
+          >
+            <p class="text-2xl font-bold">管理画面</p>
+          </div>
+        </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -38,22 +44,13 @@ export default Vue.extend({
     },
   },
   async mounted() {
-    const params = {
-      num: this.id,
-    }
-    const role = await this.$axios.$get('/api2', { params })
-    if (role === 'admin_monolyth') {
-      this.role = 'admin'
-    } else if (role === 'hodokubomonorail') {
-      this.role = 'user'
-    } else {
-      this.role = 'not_authed'
-    }
     if (this.authed) {
       this.id = await this.$auth.$state.user.id
     } else {
       this.id = 0
     }
+    const role = await this.$axios.$get('/role')
+    this.role = role.role
   },
 })
 </script>

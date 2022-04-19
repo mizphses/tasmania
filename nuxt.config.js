@@ -3,8 +3,7 @@ export default {
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
-
+  // target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'TASMANIA事務サービス',
@@ -19,7 +18,7 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&family=Kosugi&display=swap',
       },
     ],
   },
@@ -62,8 +61,8 @@ export default {
     },
     strategies: {
       discord: {
-        clientId: '960890522950565928',
-        clientSecret: 'LfnFEV2zEut8RoOhPfOtr5pnxrbNRB0S',
+        clientId: process.env.DISCORD_API_ID,
+        clientSecret: process.env.DISCORD_API_SECRET,
         configuration: {
           responseType: 'token',
         },
@@ -72,21 +71,16 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/',
     proxy: true,
   },
   proxy: {
-    '/api2': {
-      target:
-        'https://script.google.com/macros/s/AKfycbxXJdD-g01yXZQ-mOo5JnSt1nc40iUWNVdm2CgO0BFEq-QNNj5gWYWwZ2KXhM1qEgnUiA/exec',
-      pathRewrite: { '^/api2': '' },
-      followRedirects: true,
+    '/api_server': {
+      target: process.env.API_URL,
+      pathRewrite: { '^/api_server': '' },
     },
-    '/api': {
-      target:
-        'https://script.google.com/macros/s/AKfycbxXJdD-g01yXZQ-mOo5JnSt1nc40iUWNVdm2CgO0BFEq-QNNj5gWYWwZ2KXhM1qEgnUiA/exec',
-      pathRewrite: { '^/api': '' },
-      followRedirects: true,
+    '/role': {
+      // この /role は、/api_server/role につながるのだが，なぜかフロントページで上を使うとバグが出るのでゴリ押してる。
+      target: process.env.API_URL,
     },
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa

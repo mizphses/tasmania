@@ -9,19 +9,19 @@
         >さん，ようこそ。
       </p>
       <hr class="pt-2" />
-      <p v-if="role == 'hodokubomonorail'">
+      <p v-if="role == 'member'">
         あなたは<span class="font-bold text-red-900"
           >CUCC会員として認証されています</span
         >。管理画面はこちらです。
       </p>
-      <p v-if="role == 'admin_monolyth'">
+      <p v-if="role == 'admin'">
         あなたは<span class="font-bold text-green-900"
           >管理者として認証されています</span
         >。管理画面は<nuxt-link to="/" class="text-blue underline font-bold"
           >こちら</nuxt-link
         >です。
       </p>
-      <p v-else-if="role == 'usr'">
+      <p v-else-if="role == 'user'">
         あなたは<span class="font-bold text-yellow-900"
           >chuo.club ユーザとして認証されています</span
         >。管理画面は
@@ -35,13 +35,8 @@
             >会員としての登録がされていません</span
           >。登録手続きに進みましょう。
         </p>
-        <a
-          :href="
-            'https://docs.google.com/forms/d/e/1FAIpQLSeRxMJRajlEkEJqXbMTAa7obEuU3KUtXPCelH38Mm6Xppfppg/viewform?usp=pp_url&entry.212945027=' +
-            $auth.$state.user.id
-          "
-          class="text-blue font-bold underline"
-          >これをクリックしてください。</a
+        <nuxt-link to="/registration" class="text-blue font-bold underline"
+          >これをクリックしてください。</nuxt-link
         >
       </div>
       <div v-else>
@@ -58,16 +53,12 @@ export default {
   middleware: 'auth',
   data() {
     return {
-      id: this.$auth.$state.user.id,
       role: '',
     }
   },
   async mounted() {
-    const params = {
-      num: this.id,
-    }
-    const role = await this.$axios.$get('/api2', { params })
-    this.role = role
+    const role = await this.$axios.$get('/api_server/role')
+    this.role = role.role
   },
 }
 </script>

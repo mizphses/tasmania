@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Open Sans', 'Noto Sans JP', 'sans-serif'],
+        sans: ['Open Sans', 'BIZ UDGothic', 'sans-serif'],
         logo: ['Righteous', 'sans-serif'],
       },
     },
@@ -12,5 +12,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
