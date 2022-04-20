@@ -10,11 +10,6 @@
       </p>
       <p>権限コード: {{ role }}</p>
     </div>
-    <div>
-      <button class="bg-green-600 hover:bg-green-700 text-white p-3 rounded">
-        権限付与
-      </button>
-    </div>
   </div>
 </template>
 
