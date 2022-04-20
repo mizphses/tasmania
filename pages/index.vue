@@ -10,7 +10,7 @@
       <AfterLoginNotice v-if="authed" :user="user" :role="role" />
       <BeforeLoginNotice v-else />
       <div class="py-10">
-        <nuxt-link v-if="authed() && role === 'admin'" to="/admin/">
+        <nuxt-link v-if="role === 'admin'" to="/admin/">
           <div
             class="p-3 my-5 border border-red-800 hover:bg-red-800 hover:text-white rounded"
           >
@@ -54,5 +54,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-function authed() { throw new Error('Function not implemented.') }
