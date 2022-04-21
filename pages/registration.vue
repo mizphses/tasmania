@@ -137,8 +137,11 @@ export default {
     async submit_post() {
       await this.$axios
         .$post('/api_server/new_user', this.registration)
-        .then(function () {
-          router.push('/')
+        .then(() => {
+          router.push('/authed?res=')
+        })
+        .catch((err) => {
+          alert(err)
         })
     },
   },
