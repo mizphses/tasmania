@@ -138,7 +138,7 @@ export default {
       await this.$axios
         .$post('/api_server/new_user', this.registration)
         .then(() => {
-          router.push('/authed?res=')
+          this.$router.push('/authed')
         })
         .catch((err) => {
           alert(err)
