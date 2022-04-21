@@ -135,7 +135,11 @@ export default {
   },
   methods: {
     async submit_post() {
-      await this.$axios.$post('/api_server/new_user', this.registration)
+      await this.$axios
+        .$post('/api_server/new_user', this.registration)
+        .then(function (response) {
+          alert(response.success)
+        })
     },
   },
 }
