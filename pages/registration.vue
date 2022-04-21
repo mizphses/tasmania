@@ -121,13 +121,13 @@ export default {
       id: this.$auth.$state.user.id,
       role: '',
       registration: {
-        email: '',
-        passcode: '',
-        firstname: '',
-        lastname: '',
-        student_number: '',
-        tel_number: '',
-        address: '',
+        email: 'fuminori@mizphses.com',
+        passcode: 'b465b5961664',
+        firstname: '尾川',
+        lastname: '史典',
+        student_number: '21B2125025E',
+        tel_number: '08056187372',
+        address: '東京都八王子市東中野1855-1オンフルール5',
         discord_code: this.$auth.$state.user.id,
       },
       postcode: '1920351',
@@ -137,8 +137,8 @@ export default {
     async submit_post() {
       await this.$axios
         .$post('/api_server/new_user', this.registration)
-        .then(function (response) {
-          alert(response.success)
+        .then(function () {
+          router.push('/')
         })
     },
   },
