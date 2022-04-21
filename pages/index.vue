@@ -49,8 +49,13 @@ export default Vue.extend({
     } else {
       this.id = 0
     }
-    const role = await this.$axios.$get('/role')
-    this.role = role.role
+
+    if (this.authed) {
+      const role = await this.$axios.$post('/api_server/role', {
+        userid: this.$auth.$state.user.id,
+      })
+      this.role = role.role
+    }
   },
 })
 </script>

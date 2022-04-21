@@ -57,7 +57,9 @@ export default {
     }
   },
   async mounted() {
-    const role = await this.$axios.$get('/api_server/role')
+    const role = await this.$axios.$post('/api_server/role', {
+      userid: this.$auth.$state.user.id,
+    })
     this.role = role.role
   },
 }
