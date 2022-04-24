@@ -8,21 +8,21 @@
       <form>
         <div class="grid grid-cols-2">
           <label class="block pt-5 pr-2">
-            <span class="text-white">苗字（カナ）</span>
+            <span class="text-white">苗字</span>
             <input
               v-model="find.lastname"
               type="text"
               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              placeholder="クサノ"
+              placeholder="草野"
             />
           </label>
           <label class="block pt-5">
-            <span class="text-white">名前（カナ）</span>
+            <span class="text-white">名前</span>
             <input
               v-model="find.firstname"
               type="text"
               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              placeholder="ミドリ"
+              placeholder="緑"
             />
           </label>
         </div>
@@ -53,7 +53,7 @@ export default Vue.extend({
   },
   methods: {
     async submit_post() {
-      await this.$axios.$post('/api_server/find_user', this.find)
+      await this.$axios.$post('/api_server/find', this.find)
     },
   },
 })
