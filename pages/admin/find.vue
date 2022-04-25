@@ -28,6 +28,7 @@
         </div>
         <button
           class="bg-white hover:bg-gray-200 py-2 px-3 mt-3 rounded"
+          type="button"
           @click="submit_post()"
         >
           検索の実施
@@ -45,15 +46,26 @@ export default Vue.extend({
   data() {
     return {
       find: {
-        first_name: '',
-        last_name: '',
+        firstname: '',
+        lastname: '',
         searcher_id: this.$auth.$state.user.id,
+        type: 'info',
       },
     }
   },
   methods: {
     async submit_post() {
-      await this.$axios.$post('/api_server/find', this.find)
+      await this.$axios
+        .$post('/api_server/find', this.find, { responseType: 'blob' })
+        .then((response) => {
+          const link = document.createElement('a')
+          link.href = window.URL.createObjectURL(response)
+          link.download = 'generated_infocard.pdf'
+          link.click()
+        })
+        .catch((err) => {
+          alert(err)
+        })
     },
   },
 })

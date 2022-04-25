@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // THIS FILE SHOULD NOT BE VERSION CONTROLLED
 
 // https://github.com/NekR/self-destroying-sw
 
-self.addEventListener('install', function () {
+self.addEventListener('install', function (e) {
   self.skipWaiting()
 })
 
-self.addEventListener('activate', function () {
+self.addEventListener('activate', function (e) {
   self.registration.unregister()
     .then(function () {
       return self.clients.matchAll()

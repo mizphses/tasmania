@@ -99,7 +99,7 @@
         <label class="block pt-5">
           <button
             class="p-3 bg-gray-600 hover:bg-gray-700 text-white rounded"
-            type="submit"
+            type="button"
             value="登録処理の実施"
             @click="submit_post"
           >
@@ -130,7 +130,6 @@ export default {
         address: '',
         discord_code: this.$auth.$state.user.id,
       },
-      postcode: '1920351',
     }
   },
   methods: {
