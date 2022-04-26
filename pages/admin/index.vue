@@ -8,10 +8,17 @@
         <p class="pl-4">#1) 他人のプライバシーを尊重すること。</p>
         <p class="pl-4">#2) タイプする前に考えること。</p>
         <p class="pl-4">#3) 大いなる力には大いなる責任が伴うこと。</p>
-        <hr />
+      </div>
+      <div class="border border-indigo-800 rounded p-5">
+        <p class="text-xl font-bold">🔈ご案内</p>
         <p>
-          特に権限が必要な事項を操作する場合，管理者コード・パスワードの入力を要求することがあります。
+          管理者の登録作業は次を参考に実施してください。この方法で登録すれば名簿へのアクセスもできます。
         </p>
+        <a
+          href="http://office.chuo.club/s/LsNw7ZWFLmFDYzJ"
+          class="text-bold underline"
+          >管理者用資料</a
+        >
       </div>
       <nuxt-link to="/admin/find">
         <div
