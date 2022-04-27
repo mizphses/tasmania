@@ -9,7 +9,7 @@
       <h2 class="text-2xl py-3 font-bold">フロントページ</h2>
       <AfterLoginNotice v-if="authed" :user="user" :role="role" />
       <BeforeLoginNotice v-else />
-      <div v-if="authed()" class="py-10">
+      <div v-if="$auth.loggedIn == true" class="py-10">
         <!-- All Users -->
         <div class="py-10">
           <a to="//office.chuo.club">
