@@ -1,7 +1,10 @@
 <template>
   <div class="bg-gray-300 flex flex-col items-center justify-center h-screen">
     <BeforeContent />
-    <div class="bg-white shadow rounded px-5 py-10 w-1/2 h-4/5 overflow-scroll">
+    <div
+      v-if="$auth.loggedIn == true"
+      class="bg-white shadow rounded px-5 py-10 w-1/2 h-4/5 overflow-scroll"
+    >
       <h2 class="text-xl font-bold">登録処理</h2>
       <p>
         <span class="font-bold text-indigo-700">{{
