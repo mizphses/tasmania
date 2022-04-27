@@ -10,6 +10,17 @@
       <AfterLoginNotice v-if="authed" :user="user" :role="role" />
       <BeforeLoginNotice v-else />
       <div class="py-10">
+        <!-- All Users -->
+        <div class="py-10">
+          <a to="//office.chuo.club">
+            <div
+              class="p-3 my-5 border border-red-800 hover:bg-red-800 hover:text-white rounded"
+            >
+              <p class="text-2xl font-bold">Nextcloud(ファイル共有・Office)</p>
+            </div>
+          </a>
+        </div>
+        <!-- Admin Area -->
         <nuxt-link v-if="role === 'admin'" to="/admin/">
           <div
             class="p-3 my-5 border border-red-800 hover:bg-red-800 hover:text-white rounded"
