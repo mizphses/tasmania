@@ -35,7 +35,7 @@
           class="p-3 bg-gray-100 hover:bg-gray-300 text-black rounded"
           @click="check_role_again"
         >
-          遷移しない場合はもう一度試すことができます。
+          この画面から1分近く遷移しない場合はもう一度試すことができます。
         </button>
       </div>
     </div>
