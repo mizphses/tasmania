@@ -12,7 +12,7 @@
       <div v-if="$auth.loggedIn == true" class="py-10">
         <!-- All Users -->
         <div class="py-10">
-          <a to="//office.chuo.club">
+          <a href="//office.chuo.club">
             <div
               class="p-3 my-2 border border-red-800 hover:bg-red-800 hover:text-white rounded"
             >
